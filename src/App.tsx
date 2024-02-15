@@ -13,12 +13,14 @@ function App(): JSX.Element {
             </header>
             <p> </p>
             <Container>
-                <div className="App-column">
-                    <Row>
-                        <Col>Hello World</Col>
-                        <Col>Goodbye World</Col>
-                    </Row>
-                </div>
+                <Row>
+                    <Col>
+                        <div className="App-column">Hello World</div>
+                    </Col>
+                    <Col>
+                        <div className="App-column">Goodbye World</div>
+                    </Col>
+                </Row>
             </Container>
             <p> </p>
             Colors:
