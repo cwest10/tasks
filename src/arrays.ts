@@ -122,14 +122,15 @@ export function injectPositive(values: number[]): number[] {
     // console.log("Initial Copy: " + copy);
 
     const firstNegIndex = values.findIndex((value) => value < 0);
-
-    let newValues;
     if (firstNegIndex == -1) {
         const sum = values.reduce((currentTotal, num) => currentTotal + num, 0);
-        return (newValues = [...values, sum]);
+        return [...values, sum];
     } else {
         const reducedCopy = copy.splice(0, firstNegIndex);
-        const sum = reducedCopy.reduce((currentTotal, num) => currentTotal + num, 0);
+        const sum = reducedCopy.reduce(
+            (currentTotal, num) => currentTotal + num,
+            0
+        );
         copy2.splice(firstNegIndex + 1, 0, sum);
         // console.log("reducedCopy: " + reducedCopy);
         // console.log("Sum: " + sum);
