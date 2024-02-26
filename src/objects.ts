@@ -89,11 +89,16 @@ export function toShortForm(question: Question): string {
 export function toMarkdown(question: Question): string {
     if (question.type === "multiple_choice_question") {
         return (
-            "# " + question.name +
-            "\n" + question.body +
-            "\n- " + question.options[0] +
-            "\n- " + question.options[1] +
-            "\n- " + question.options[2]
+            "# " +
+            question.name +
+            "\n" +
+            question.body +
+            "\n- " +
+            question.options[0] +
+            "\n- " +
+            question.options[1] +
+            "\n- " +
+            question.options[2]
         );
     } else {
         return "# " + question.name + "\n" + question.body;
@@ -124,7 +129,12 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-    return {...oldQuestion, name: "Copy of " + oldQuestion.name, id: id, published: false};
+    return {
+        ...oldQuestion,
+        name: "Copy of " + oldQuestion.name,
+        id: id,
+        published: false
+    };
 }
 
 /**
@@ -135,7 +145,10 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    const newQuestion = {...question, options: [...question.options, newOption]};
+    const newQuestion = {
+        ...question,
+        options: [...question.options, newOption]
+    };
     return newQuestion;
 }
 
@@ -147,6 +160,17 @@ export function addOption(question: Question, newOption: string): Question {
  * Notice that the second Question is provided as just an object with a `points`
  * field; but the function call would be the same as if it were a `Question` type!
  */
-export function mergeQuestion(id: number, name: string, contentQuestion: Question, { points }: { points: number }): Question {
-    return {...contentQuestion, id: id, name: name, published: false, points: points};
+export function mergeQuestion(
+    id: number,
+    name: string,
+    contentQuestion: Question,
+    { points }: { points: number }
+): Question {
+    return {
+        ...contentQuestion,
+        id: id,
+        name: name,
+        published: false,
+        points: points
+    };
 }
