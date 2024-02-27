@@ -27,7 +27,6 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
             return question;
         }
     });
-    console.log("Filtered: " + filtered);
     return filtered;
 }
 
@@ -82,7 +81,6 @@ export function sumPoints(questions: Question[]): number {
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    console.log(questions);
     return questions.reduce(
         (currentSum: number, question: Question): number =>
             question.published === true
@@ -229,8 +227,6 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    // console.log("Target Index: " + targetOptionIndex);
-    // console.log("New Option: " + newOption);
     return questions.map((question: Question): Question => {
         if (question.id === targetId) {
             if (targetOptionIndex === -1) {
@@ -264,7 +260,6 @@ export function duplicateQuestionInArray(
     const index = questions.findIndex(
         (question: Question): boolean => question.id === targetId
     );
-    console.log("Index: " + index);
     Arr1.splice(index + 1, 0, duplicateQuestion(newId, questions[index]));
     return Arr1;
 }
