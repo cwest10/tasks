@@ -18,16 +18,16 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  * `expected`, and an empty array for its `options`.
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
-    // const questionsCopy = questions.map((question: Question): Question => ({...questions, options: [...question.options]}));
-    const questionsCopy = [...questions];
-    // console.log("Copy: " + questionsCopy);
-    const filtered = questionsCopy.filter(
-        (question: Question): boolean =>
-            question.body !== "" &&
-            question.expected !== "" &&
+    const filtered = questions.filter((question: Question) => {
+        if (
+            question.body !== "" ||
+            question.expected !== "" ||
             question.options.length > 0
-    );
-    // console.log("Filtered: " + x);
+        ) {
+            return question;
+        }
+    });
+    console.log("Filtered: " + filtered);
     return filtered;
 }
 
@@ -85,9 +85,12 @@ export function sumPublishedPoints(questions: Question[]): number {
     console.log(questions);
     return questions.reduce(
         (currentSum: number, question: Question): number =>
-            question.published === true ? currentSum + 1 : currentSum,
+            question.published === true
+                ? (currentSum += question.points)
+                : currentSum,
         0
     );
+    // return questions.map(())
 }
 
 /***
@@ -148,23 +151,9 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    console.log("questions: " + questions);
-    if (questions.length === 0) {
-        return true;
-    }
-    const firstType = typeof [...questions];
-    console.log("FirstType: " + firstType);
-    const reduced = questions.reduce(
-        (sum: number, question: Question): number =>
-            typeof question !== firstType ? sum + 1 : sum,
-        0
+    return questions.every(
+        (question: Question) => questions[0].type === question.type
     );
-    console.log("Reduced: " + reduced);
-    if (reduced > 0) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
 /***
@@ -240,27 +229,24 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    console.log("Target Index: " + targetOptionIndex);
-    console.log("New Option: " + newOption);
-
-    const copyQuestions = questions.map(
-        (question: Question): Question => ({
-            ...question,
-            options: [...question.options]
-        })
-    );
-
-    return copyQuestions.map(
-        (question: Question): Question => ({
-            ...question,
-            options:
-                question.id === targetId && targetOptionIndex === -1
-                    ? [...question.options, newOption]
-                    : question.id === targetId
-                    ? question.options.splice(targetOptionIndex, 1, newOption)
-                    : [...question.options]
-        })
-    );
+    // console.log("Target Index: " + targetOptionIndex);
+    // console.log("New Option: " + newOption);
+    return questions.map((question: Question): Question => {
+        if (question.id === targetId) {
+            if (targetOptionIndex === -1) {
+                return {
+                    ...question,
+                    options: [...question.options, newOption]
+                };
+            } else {
+                const Option1 = [...question.options];
+                Option1[targetOptionIndex] = newOption;
+                return { ...question, options: Option1 };
+            }
+        } else {
+            return question;
+        }
+    });
 }
 
 /***
@@ -274,14 +260,11 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
+    const Arr1 = [...questions];
     const index = questions.findIndex(
         (question: Question): boolean => question.id === targetId
     );
-    //const copyQuestion = questions.map((question: Question): Question => question.id === targetId);
     console.log("Index: " + index);
-    return questions.splice(
-        index + 1,
-        0,
-        duplicateQuestion(newId, questions[index])
-    );
+    Arr1.splice(index + 1, 0, duplicateQuestion(newId, questions[index]));
+    return Arr1;
 }
