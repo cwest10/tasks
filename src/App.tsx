@@ -1,7 +1,16 @@
 import React from "react";
 import "./App.css";
+<<<<<<< HEAD
 import logo from "./Images/Logo.png";
 import { Button, Col, Container, Row } from "react-bootstrap";
+=======
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { StartAttempt } from "./components/StartAttempt";
+import { TwoDice } from "./components/TwoDice";
+import { CycleHoliday } from "./components/CycleHoliday";
+import { Counter } from "./components/Counter";
+>>>>>>> upstream/task-state
 
 function App(): JSX.Element {
     return (
@@ -11,6 +20,7 @@ function App(): JSX.Element {
                 <img src={logo} alt="UD's Logo" />
                 <h2>Connor Westerman</h2>
             </header>
+<<<<<<< HEAD
             <p> </p>
             <Container>
                 <Row>
@@ -38,6 +48,20 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
+=======
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <StartAttempt></StartAttempt>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
+            <hr />
+            <CycleHoliday></CycleHoliday>
+>>>>>>> upstream/task-state
         </div>
     );
 }
