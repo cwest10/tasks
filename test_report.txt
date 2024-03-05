@@ -15,60 +15,21 @@ PASS src/objects.test.ts
 PASS src/arrays.test.ts
 PASS src/nested.test.ts
 PASS src/components/StartAttempt.test.tsx
-PASS src/bad-components/ChooseTeam.test.tsx
 PASS src/components/TwoDice.test.tsx
-PASS src/bad-components/DoubleHalf.test.tsx
+PASS src/bad-components/ChooseTeam.test.tsx
 PASS src/functions.test.ts
+PASS src/bad-components/DoubleHalf.test.tsx
 PASS src/components/ChangeType.test.tsx
-PASS src/components/Counter.test.tsx
 PASS src/components/CycleHoliday.test.tsx
+PASS src/components/Counter.test.tsx
 PASS src/components/RevealAnswer.test.tsx
-PASS src/bad-components/ColoredBox.test.tsx
-  ● Console
-
-    console.log
-      Current Color: red
-
-      at ColoredBox (src/bad-components/ColoredBox.tsx:45:13)
-
-    console.log
-      Current Color: red
-
-      at ColoredBox (src/bad-components/ColoredBox.tsx:45:13)
-
-    console.log
-      Current Color: red
-
-      at ColoredBox (src/bad-components/ColoredBox.tsx:45:13)
-
-    console.log
-      Current Color: blue
-
-      at ColoredBox (src/bad-components/ColoredBox.tsx:45:13)
-
-    console.log
-      Current Color: green
-
-      at ColoredBox (src/bad-components/ColoredBox.tsx:45:13)
-
-    console.log
-      Current Color: red
-
-      at ColoredBox (src/bad-components/ColoredBox.tsx:45:13)
-
 PASS src/bad-components/ShoveBox.test.tsx
+PASS src/bad-components/ColoredBox.test.tsx
 PASS src/App.test.tsx
-  ● Console
-
-    console.log
-      Current Color: red
-
-      at ColoredBox (src/bad-components/ColoredBox.tsx:45:13)
-
 --------------------|---------|----------|---------|---------|-------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------|---------|----------|---------|---------|-------------------
-All files           |   99.51 |    98.01 |     100 |   99.49 |                   
+All files           |   99.51 |    98.01 |     100 |   99.48 |                   
  src                |   99.25 |    98.48 |     100 |    99.2 |                   
   App.tsx           |     100 |      100 |     100 |     100 |                   
   arrays.ts         |     100 |      100 |     100 |     100 |                   
@@ -95,5 +56,5 @@ All files           |   99.51 |    98.01 |     100 |   99.49 |
 Test Suites: 15 passed, 15 total
 Tests:       110 passed, 110 total
 Snapshots:   0 total
-Time:        6.415 s
+Time:        6.11 s
 Ran all test suites.
