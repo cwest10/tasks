@@ -42,7 +42,7 @@ function ColorPreview(props: ColoredBoxProps): JSX.Element {
 export function ColoredBox(): JSX.Element {
     const [colorIndex, setColorIndex] = useState<number>(0);
 
-    console.log("Current Color: " + COLORS[colorIndex]);
+    // console.log("Current Color: " + COLORS[colorIndex]);
 
     return (
         <div>
