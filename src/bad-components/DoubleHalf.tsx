@@ -18,6 +18,8 @@ export function DoubleHalf(): JSX.Element {
     );
 }
 
+// Can I delete Doubler and Halver? Do they count as components?
+
 // function Doubler(): JSX.Element {
 //     return <Button onClick={() => setDhValue(2 * dhValue)}>Double</Button>;
 // }
