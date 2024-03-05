@@ -1,6 +1,27 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
+interface DoubleHalfProps {
+    dhValue: number;
+    setDhValue: (expression: number) => void;
+}
+
+function Doubler(props: DoubleHalfProps): JSX.Element {
+    return (
+        <Button onClick={() => props.setDhValue(2 * props.dhValue)}>
+            Double
+        </Button>
+    );
+}
+
+function Halver(props: DoubleHalfProps): JSX.Element {
+    return (
+        <Button onClick={() => props.setDhValue(0.5 * props.dhValue)}>
+            Halve
+        </Button>
+    );
+}
+
 export function DoubleHalf(): JSX.Element {
     const [dhValue, setDhValue] = useState<number>(10);
 
@@ -10,33 +31,8 @@ export function DoubleHalf(): JSX.Element {
             <div>
                 The current value is: <span>{dhValue}</span>
             </div>
-            <div>
-                <Button onClick={() => setDhValue(2 * dhValue)}>Double</Button>
-                <Button onClick={() => setDhValue(0.5 * dhValue)}>Halve</Button>
-            </div>
+            <Doubler dhValue={dhValue} setDhValue={setDhValue}></Doubler>
+            <Halver dhValue={dhValue} setDhValue={setDhValue}></Halver>
         </div>
     );
 }
-
-// Can I delete Doubler and Halver? Do they count as components?
-
-// function Doubler(): JSX.Element {
-//     return <Button onClick={() => setDhValue(2 * dhValue)}>Double</Button>;
-// }
-
-// function Halver(): JSX.Element {
-//     return <Button onClick={() => setDhValue(0.5 * dhValue)}>Halve</Button>;
-// }
-
-// export function DoubleHalf(): JSX.Element {
-//     return (
-//         <div>
-//             <h3>Double Half</h3>
-//             <div>
-//                 The current value is: <span>{dhValue}</span>
-//             </div>
-//             <Doubler></Doubler>
-//             <Halver></Halver>
-//         </div>
-//     );
-// }
