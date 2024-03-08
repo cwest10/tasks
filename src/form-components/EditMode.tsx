@@ -57,7 +57,7 @@ export function EditMode(): JSX.Element {
                     />
                 </Form.Group>
             ) : (
-                ""
+                <div></div>
             )}
             {inEditMode ? (
                 <Form.Check
