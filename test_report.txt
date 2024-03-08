@@ -20,8 +20,8 @@ PASS src/components/TwoDice.test.tsx
 PASS src/functions.test.ts
 PASS src/bad-components/DoubleHalf.test.tsx
 PASS src/bad-components/ChooseTeam.test.tsx
-PASS src/form-components/CheckAnswer.test.tsx
 PASS src/components/ChangeType.test.tsx
+PASS src/form-components/CheckAnswer.test.tsx
 PASS src/form-components/EditMode.test.tsx
   ● Console
 
@@ -42,8 +42,8 @@ PASS src/form-components/EditMode.test.tsx
 
 PASS src/components/CycleHoliday.test.tsx
 PASS src/form-components/GiveAttempts.test.tsx
-PASS src/components/Counter.test.tsx
 PASS src/form-components/ChangeColor.test.tsx
+PASS src/components/Counter.test.tsx
 PASS src/components/RevealAnswer.test.tsx
 PASS src/bad-components/ColoredBox.test.tsx
 PASS src/bad-components/ShoveBox.test.tsx
@@ -84,5 +84,5 @@ All files                    |   99.13 |    98.29 |   99.16 |   99.09 |
 Test Suites: 20 passed, 20 total
 Tests:       134 passed, 134 total
 Snapshots:   0 total
-Time:        7.416 s
+Time:        7.493 s
 Ran all test suites.
